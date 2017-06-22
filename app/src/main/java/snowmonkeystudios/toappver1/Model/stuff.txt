@@ -1,0 +1,53 @@
+
+C:\Program Files\Java\jdk1.8.0_111\bin>keytool -exportcert -alias androiddebugkey -keystore C:\Users\Rob\.android\debug.keystore -list -v
+Enter keystore password:
+Alias name: androiddebugkey
+Creation date: Dec 8, 2016
+Entry type: PrivateKeyEntry
+Certificate chain length: 1
+Certificate[1]:
+Owner: C=US, O=Android, CN=Android Debug
+Issuer: C=US, O=Android, CN=Android Debug
+Serial number: 1
+Valid from: Thu Dec 08 13:58:26 EST 2016 until: Sat Dec 01 13:58:26 EST 2046
+Certificate fingerprints:
+         MD5:  A8:EC:9A:CA:50:AA:01:89:DC:C9:87:10:79:1C:AE:A2
+         SHA1: AC:7E:0B:8B:DA:B0:0D:3D:FF:A8:75:1F:81:BC:5F:A4:15:25:17:63
+         SHA256: BE:08:C4:B0:4C:A0:18:26:25:DD:C7:D9:76:83:5D:FE:5B:99:98:4E:B5:93:F9:E0:14:A4:4C:FE:92:00:D9:56
+         Signature algorithm name: SHA1withRSA
+         Version: 1
+
+
+
+ 294744851070-kula2pvm7dbb396kufbn1i4n3vsioccl.apps.googleusercontent.com
+
+
+ <?xml version="1.0" encoding="utf-8"?>
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+ package="snowmonkeystudios.toapp">
+
+ <application
+     android:allowBackup="true"
+     android:icon="@mipmap/ic_launcher"
+     android:label="@string/app_name"
+     android:roundIcon="@mipmap/ic_launcher_round"
+     android:supportsRtl="true"
+     android:theme="@style/AppTheme">
+     <activity
+         android:name=".StartPage"
+         android:label="@string/app_name"
+         android:theme="@style/AppTheme.NoActionBar">
+         <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
+
+             <category android:name="android.intent.category.LAUNCHER" />
+         </intent-filter>
+     </activity>
+     <activity
+         android:name=".tournamentManager"
+         android:label="@string/title_activity_tournament_manager"
+         android:theme="@style/AppTheme.NoActionBar"></activity>
+ </application>
+
+
+default id: 1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms
