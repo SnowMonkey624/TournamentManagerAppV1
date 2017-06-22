@@ -79,6 +79,7 @@ public class AddParticipant extends AppCompatActivity {
                     finish();
                     //TODO: alt to test
                     //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    
                     startActivity(myIntent);
                 }
             }
