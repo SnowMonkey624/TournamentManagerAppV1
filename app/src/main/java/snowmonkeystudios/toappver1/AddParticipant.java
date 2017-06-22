@@ -42,6 +42,7 @@ public class AddParticipant extends AppCompatActivity {
         tagIn = (EditText)findViewById(R.id.TagInput);
         add = (Button)findViewById(R.id.AddButton);
 
+
         games = (ListView)findViewById(R.id.GamesEntered);
         gamesList =  TournamentManager.getGamesList();
 
