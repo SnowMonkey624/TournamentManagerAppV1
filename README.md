@@ -1,5 +1,5 @@
 # TournamentManagerAppV1
-An Android app built to assist individuals running video game tournaments when managing player signups. It utilizes Google's Sheets api as a means of concurrent backup so that both desktop and mobile users can work in tandem. 
+An Android app built to assist individuals running video game tournaments when managing player signups. It utilizes Google's Sheets API as a means of concurrent backup so that both desktop and mobile users can work in tandem. 
 
 The sample document used can be found here: https://docs.google.com/spreadsheets/d/1dIBlGah3AZ8Y2Z9vBPIg54IjIFLFZot8W-eKlbn4APA/edit#gid=0
 
