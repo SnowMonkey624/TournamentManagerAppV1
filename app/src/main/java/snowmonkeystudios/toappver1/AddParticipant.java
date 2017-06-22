@@ -57,6 +57,8 @@ public class AddParticipant extends AppCompatActivity {
                 if(nameIn.getText().toString().isEmpty() || tagIn.getText().toString().isEmpty())
                 {
                     //Error msg that there must be a name and a tag.
+                    Toast.makeText(getApplicationContext(),
+                            "Error: Input must contain both a Name and a Tag", Toast.LENGTH_LONG).show();
                 }
                 else
                 {
@@ -84,20 +86,5 @@ public class AddParticipant extends AppCompatActivity {
                 }
             }
         });
-
-        /*games.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-            public void onItemClick(AdapterView<?> parent, View v, int position, long arg3)
-            {
-
-                Game gameTest = (Game) parent.getItemAtPosition(position);
-                Toast.makeText(getApplicationContext(),
-                        "Clicked on Row: " + gameTest.toString(),
-                        Toast.LENGTH_LONG).show();
-                gamesList.get(position).flipSelected();
-                games.invalidate();
-                games.requestLayout();
-            }
-        });*/
     }
 }
