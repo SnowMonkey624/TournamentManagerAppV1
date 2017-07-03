@@ -1,5 +1,6 @@
 package snowmonkeystudios.toappver1;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -45,6 +47,8 @@ public class PlayerDetails extends AppCompatActivity {
      */
     private ViewPager mViewPager;
 
+    FloatingActionButton editButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +63,7 @@ public class PlayerDetails extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        editButton = (FloatingActionButton)findViewById(R.id.EditPlayer);
 
         players = TournamentManager.getPlayerList();
 
@@ -66,12 +71,18 @@ public class PlayerDetails extends AppCompatActivity {
         int page = getIntent().getIntExtra("Playerindex", defaultValue);
         mViewPager.setCurrentItem(page);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
+                int position = mViewPager.getCurrentItem();
+                Intent myIntent = new Intent(getApplicationContext(), AddParticipant.class);
+
+                myIntent.putExtra("PlayerIndex", position);
+                myIntent.putExtra("PlayerData", TournamentManager.getSpecifiedPlayerData(position));
+
+                startActivity(myIntent);
             }
         });
 

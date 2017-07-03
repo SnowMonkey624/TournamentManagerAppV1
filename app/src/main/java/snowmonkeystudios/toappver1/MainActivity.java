@@ -386,7 +386,8 @@ public class MainActivity extends Activity
                     .get(spreadsheetId, range)
                     .execute();
 
-            List<List<Object>> values = response.getValues();
+            List<List<Object>> values = new ArrayList<List<Object>>();
+            values = response.getValues();
 
             /*//debugging junk
                 List<String> stringList = new ArrayList<String>();
@@ -396,12 +397,20 @@ public class MainActivity extends Activity
                 values.add(stuff);
             //debugging junk*/
 
-            //TODO: Add new items at this point.
-            if(AddParticipant.docEntry != null)
-            {
-                values.add(AddParticipant.docEntry);
+            if(AddParticipant.docEntry != null) {
+
+                if(AddParticipant.index != -1)
+                {
+                    values.remove(AddParticipant.index+2);
+                    values.add(AddParticipant.index+2, AddParticipant.docEntry);
+                    AddParticipant.docEntry = null;
+                    AddParticipant.index = -1;
+                }
+                else{
+                    values.add(AddParticipant.docEntry);
+                    AddParticipant.docEntry = null;
+                }
             }
-            //TODO: Account for edited items.
 
             ValueRange body = new ValueRange()
                     .setValues(values);

@@ -1,6 +1,7 @@
 package snowmonkeystudios.toappver1;
 
 import android.content.Intent;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,7 +29,7 @@ public class AddParticipant extends AppCompatActivity {
     Button add;
     static List<Object> docEntry = null;
     static int index = -1;
-    //static Participant newPlayer;
+    static Participant playerToEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +43,22 @@ public class AddParticipant extends AppCompatActivity {
         tagIn = (EditText)findViewById(R.id.TagInput);
         add = (Button)findViewById(R.id.AddButton);
 
+        int defaultValue = -1;
+        index = getIntent().getIntExtra("PlayerIndex", defaultValue);
+        playerToEdit = (Participant)getIntent().getParcelableExtra("PlayerData");
 
         games = (ListView)findViewById(R.id.GamesEntered);
         gamesList =  TournamentManager.getGamesList();
+
+        if(playerToEdit != null) {
+            nameIn.setText(playerToEdit.getName());
+            tagIn.setText(playerToEdit.getTag());
+            for (int i = 0; i < gamesList.size(); i++) {
+                if (playerToEdit.getGamesEntered().contains(gamesList.get(i))) {
+                    gamesList.get(i).setSelected(true);
+                }
+            }
+        }
 
         CustomAdapter adapter = new CustomAdapter(this, gamesList);
 
@@ -78,8 +92,8 @@ public class AddParticipant extends AppCompatActivity {
                         }
                     }
                     Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
-                    finish();
-                    //TODO: alt to test
+                    myIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | IntentCompat.FLAG_ACTIVITY_CLEAR_TASK);
+                    //Possible alt?
                     //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                     startActivity(myIntent);

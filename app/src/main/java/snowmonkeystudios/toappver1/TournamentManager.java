@@ -33,11 +33,7 @@ public class TournamentManager extends AppCompatActivity {
         setContentView(R.layout.activity_tournament_manager);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        if(currentTournament == null)
-        {
-            currentTournament = new Tournament();
-        }
+        currentTournament = new Tournament();//Create/refresh tournament
 
         if(values != null)
         {
@@ -138,4 +134,9 @@ public class TournamentManager extends AppCompatActivity {
     public static List<Participant> getPlayerList() { return currentTournament.getPlayers(); }
 
     public static List<Game> getGamesList() { return currentTournament.getGamesRun(); }
+
+    public static Participant getSpecifiedPlayerData(int index)
+    {
+        return currentTournament.getPlayers().get(index);
+    }
 }
